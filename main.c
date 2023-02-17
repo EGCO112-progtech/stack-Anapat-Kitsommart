@@ -3,15 +3,35 @@
 #include<string.h>
 #include "node.h"
 
+void push(NodePtr* top, int x);
+int pop(NodePtr* top);
+
 int main(int argc, char **argv){
   
   int i,N,j;
-  NodePtr *top;
   
-  push(&top,5);
-  pop(&top);
-  push(&top,5);
-  push(&top,5);
+  NodePtr top=NULL;
+  
+  for (i = 1; i < argc; i++){
+	push(&top,atoi(argv[i]));
+  }
+  
+  for (i = 1; i < argc; i++){
+	printf("%d\n",pop(&top));
+  }
+  
+
+  
+  
+  
+  /*push(&top,5);
+  printf("%d\n",pop(&top));
+  //pop(&top);
+  push(&top,7);
+  push(&top,8);
+  printf("%d\n",pop(&top));
+  printf("%d\n",pop(&top));
+  printf("%d\n",pop(&top));*/
  
  
   
@@ -22,7 +42,7 @@ int main(int argc, char **argv){
   for(i=1;i<argc;i++){
    
      for(j=0;j<strlen(argv[i]);j++){
-       /* Use stack to help with the parentheses*/
+        Use stack to help with the parentheses
 
 
      }
