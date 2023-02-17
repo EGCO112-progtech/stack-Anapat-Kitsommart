@@ -34,7 +34,7 @@ int main(int argc, char **argv){
 					  break;
 		}
 		
-		if(check==1* break;*/
+		if(check==1) break;*/
 		
 		switch(argv[i][j]){
 			case '{':
