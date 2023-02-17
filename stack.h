@@ -9,33 +9,33 @@ typedef struct {
 
 typedef Stack * StackPtr;
 
-void push(StackPtr s, int value){
+void push(StackPtr s, char bracket){
 	Node *new_node=(NodePtr)malloc(sizeof(Node));
 	if(new_node){
-		new_node->data=value;	
+		new_node->data=bracket;	
 		new_node->nextPtr=s->top;
 		s->top=new_node;
 		s->size++;
 	}
 }
 
-int pop(StackPtr s){
+char pop(StackPtr s){
 	NodePtr t=s->top;
-	int value;
+	char bracket;
 	if(s->top!=NULL){
 		t=s->top;
-		value=t->data;
+		bracket=t->data;
 		s->top=t->nextPtr;
 		free(t);
 		s->size--;
-		return value;
+		return bracket;
 	}
 	return 0;	
 }
 
 void pop_all(StackPtr s){
 	while(s->top){
-		printf("%d\n",pop(s));
+		pop(s);
 	}
 }
 #endif

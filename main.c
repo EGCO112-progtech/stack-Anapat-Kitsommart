@@ -18,15 +18,48 @@ int main(int argc, char **argv){
   s.size=0;
   
   NodePtr top=NULL;
+  int check=0;
   
   for (i = 1; i < argc; i++){
-	push(&s,atoi(argv[i]));
+	check=0;
+	for(j=0;j<strlen(argv[i]);j++){
+		/*switch(argv[i][j]){
+			case '{':
+			case '[': push(&s,argv[i][j]); break;
+			case '}': if(s.size==0) check=1;
+					  else if(pop(&s)!='{') check=2;
+					  break;
+			case ']': if(s.size==0) check=1;
+					  else if(pop(&s)!='[') check=2;
+					  break;
+		}
+		
+		if(check==1* break;*/
+		
+		switch(argv[i][j]){
+			case '{':
+			case '[': if(check==1) check=2;
+					  else push(&s,argv[i][j]);
+					  break;
+			case '}': if(s.size==0) check=1;
+					  else if(pop(&s)!='{') check=2;
+					  break;
+			case ']': if(s.size==0) check=1;
+					  else if(pop(&s)!='[') check=2;
+					  break;
+		}
+	}
+	
+	if(s.size>0) {
+		printf("argv %d: Incorrect: too many open parenthesis\n",i);
+		pop_all(&s);
+	}
+	else if(check==1) printf("argv %d: Incorrect: too many closed parenthesis\n",i);
+	else if(check==0) printf("argv %d: Correct\n",i);
+	else printf("argv %d: Incorrect: mismatch\n",i);
   }
   
   pop_all(&s);
-  
-
-  
   
   
   /*push(&top,5);
