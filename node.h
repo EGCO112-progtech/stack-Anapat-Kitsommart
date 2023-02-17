@@ -1,57 +1,43 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include "node.h"
+//
+//  linkedlist.h
+//  LinkedList_simple
+//
+//  Created by Mingmanas Sivaraksa
+//
 
-void push(NodePtr* top, int x);
-int pop(NodePtr* top);
+#ifndef linkedlist_h
+#define linkedlist_h
+struct node
+{
+    int data;
+    struct node *nextPtr;
+};
 
-int main(int argc, char **argv){
-  
-  int i,N,j;
-  
-  NodePtr top=NULL;
-  
-  for (i = 1; i < argc; i++){
-	push(&top,atoi(argv[i]));
-  }
-  
-  for (i = 1; i < argc; i++){
-	printf("%d\n",pop(&top));
-  }
-  
-
-  
-  
-  
-  /*push(&top,5);
-  printf("%d\n",pop(&top));
-  //pop(&top);
-  push(&top,7);
-  push(&top,8);
-  printf("%d\n",pop(&top));
-  printf("%d\n",pop(&top));
-  printf("%d\n",pop(&top));*/
- 
- 
-  
-
- /*
- Stack s;
- printf("Checking the parentheses in argv arguments\n");
-  for(i=1;i<argc;i++){
-   
-     for(j=0;j<strlen(argv[i]);j++){
-        Use stack to help with the parentheses
-
-
-     }
-
-
-  }
-*/
-
-
-
-   return 0;
+typedef struct node Node;
+typedef struct node* NodePtr;
+/*
+//push
+void push(NodePtr *top, int x){
+	Node *new_node=(NodePtr)malloc(sizeof(Node));
+	if(new_node){
+		new_node->data=x;	
+		new_node->nextPtr=*top;
+		*top=new_node;
+	}
 }
+
+//pop
+int pop(NodePtr *top){
+	NodePtr t=*top;
+	int value;
+	if((*top)!=NULL){
+		t=*top;
+		value=t->data;
+		*top=t->nextPtr;
+		free(t);
+		return value;
+	}
+	return 0;
+}
+*/
+#endif

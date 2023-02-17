@@ -1,24 +1,29 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include "node.h"
+//#include "node.h"
+#include "stack.h"
 
-void push(NodePtr* top, int x);
-int pop(NodePtr* top);
+/*void push(NodePtr* top, int x);
+int pop(NodePtr* top);*/
+
+/*void push(NodePtr* s, int value);
+int pop(NodePtr* s);*/
 
 int main(int argc, char **argv){
   
   int i,N,j;
+  Stack s;
+  s.top=NULL;
+  s.size=0;
   
   NodePtr top=NULL;
   
   for (i = 1; i < argc; i++){
-	push(&top,atoi(argv[i]));
+	push(&s,atoi(argv[i]));
   }
   
-  for (i = 1; i < argc; i++){
-	printf("%d\n",pop(&top));
-  }
+  pop_all(&s);
   
 
   
